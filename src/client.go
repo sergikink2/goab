@@ -28,6 +28,7 @@ func MakeRequest(url string,ch chan Info){
 }
 
 func Avg(nums []float64) float64{
+	//Returns the average of a floar64 array
 	sum := 0.0  
 	for _,num:= range nums {
 		

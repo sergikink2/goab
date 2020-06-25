@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"strconv"
+	"fmt"
 
 )
 
@@ -36,6 +37,10 @@ func main() {
 	concurrency = 1
 	urlhost = args[len(args)-1]
 	chooseOption(args)
-	MakeRequests(number,concurrency,urlhost)
+	var inf Info = MakeRequests(number,concurrency,urlhost)
+	
+	fmt.Printf("Average latency: %0.3f\n",inf.latency)
+	fmt.Printf("TPS: %.3f\n",inf.tps)
+	fmt.Printf("Error rate: %.2f\n",inf.errorT)
 
 }

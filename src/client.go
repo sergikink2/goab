@@ -57,7 +57,6 @@ func MakeRequests(n int,c int, url string) Info{
 		latencies = append(latencies,inf.latency)
 
 	}
-
 	infoT.latency = Avg(latencies)
 	infoT.tps = float64(n)/infoT.latency
 	infoT.errorT = infoT.errorT/float64(n) * 100.0

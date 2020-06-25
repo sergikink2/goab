@@ -13,7 +13,7 @@ type Info struct {
 }
 
 func MakeRequest(url string,ch chan Info){
-	//Getting cpu% 
+	
 	errorT:= 0.0
 	//Getting start time
 	start := time.Now()

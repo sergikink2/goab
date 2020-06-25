@@ -23,7 +23,7 @@ func MakeRequest(url string,ch chan Info){
 	}
 	seconds := time.Since(start).Seconds()
 	defer resp.Body.Close()
-	//Getting the request time on the channel for compute the latency and cpu% usage
+	//Getting the request time on the channel for compute the latency and  usage
 	ch<-Info{seconds,0.0,errorT}
 }
 
@@ -56,12 +56,10 @@ func MakeRequests(n int,c int, url string) Info{
 		latencies = append(latencies,inf.latency)
 
 	}
+
 	infoT.latency = Avg(latencies)
 	infoT.tps = float64(n)/infoT.latency
 	infoT.errorT = infoT.errorT/float64(n) * 100.0
 	return infoT
-	/*
-	fmt.Printf("Latency: %f\n",infoT.latency)
-	fmt.Println("Percentage CPU (avg): ",Avg(cpuMean))*/
 
 }
